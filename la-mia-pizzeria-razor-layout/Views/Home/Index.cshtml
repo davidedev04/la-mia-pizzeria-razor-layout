@@ -1,8 +1,74 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-}
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    // PRIMO SNACK
+
+    string nome = "Davide";
+    string cognome = "Prencipe";
+    <h2>@nome @cognome</h2>
+
+
+    // SECONDO SNACK
+
+    void StampaNumeri(int n)
+    {
+        int sum = 0;
+        for (int i = 1; i <= n; i++)
+            sum += i;
+
+        <span>La somma dei numeri da 1 a @n è @sum</span>
+    }
+
+    StampaNumeri(15);
+
+
+    // TERZO SNACK
+
+    int contaLettere(string frase)
+    {
+
+        return frase.Count(x => x == 'a');
+
+    }
+
+    string frase = "Nel mezzo del cammin di nostra vita";
+
+    <br />
+    <br />
+    <p>Nella frase @frase abbiamo @contaLettere(frase) volte la lettera A</p>
+
+
+    // QUARTO SNACK
+
+
+    List<int> numbers = new List<int>();
+
+    System.Random rng = new Random();
+
+    for (int i = 1; i <= 20; i++)
+    {
+        numbers.Add(rng.Next(1, 91));
+    }
+
+    foreach (var n in numbers)
+    {
+        if (n > 20 && n <= 70)
+        {
+            <span>@n</span>
+        }
+    }
+
+
+    // QUINTO SNACK
+
+    DateTime ora = DateTime.Now;
+
+    <p>Oggi é <strong>@ora.ToString("yyyy - MM - dd")</strong> e sono le <strong>@ora.ToString("HH:mm:ss")</strong></p>
+
+
+    // SESTO SNACK
+
+    <p>7 giorni fa era: @ora.AddDays(-7).ToString("yyyy/MM/dd HH:mm:ss")</p>
+    <p>Oggi è @ora.ToString("dddd")</p>
+    <p>Fra un anno sarà @ora.AddYears(1).ToString("dddd")</p>
+}
